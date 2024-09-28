@@ -1,0 +1,15 @@
+{
+  "name": "nyt",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "parcel build --public-url https://JohnEfrenTelanII.github.io/nytimes src/index.html --dist-dir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}

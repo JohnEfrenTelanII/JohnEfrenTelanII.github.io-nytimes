@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #1a1a1a; 
+    font-family: "Audiowide", sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    color: rgb(255, 255, 255); 
+    overflow-y: overlay;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 50px;
+    background-color: #000; 
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.header.sticky {
+    padding-block: 10px;
+    box-shadow: inset 0 -1.5px 3px rgba(255, 255, 255, 0.442);
+}
+
+.logo {
+    font-size: 45px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    padding: 10px;
+    position: relative; 
+    transition: border 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.search-bar input {
+    padding: 10px 15px;
+    border-radius: 25px; 
+    border: 1px solid #ccc;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    outline: none;
+    width: 200px;
+    background-color: #333; 
+    color: #fff; 
+}
+
+.search-bar input:focus {
+    border-color: #007BFF; 
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); 
+    width: 250px; 
+}
+
+.search-bar button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.search-bar button:hover {
+    background-color: #0056b3; 
+}
+
+#news-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+    margin-top: 120px; 
+    padding: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.news-item {
+    background-color: #333; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.news-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #fff; 
+}
+
+.news-item p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+.news-item a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
+
+.news-item img.news-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design for mobile view */
+@media (max-width: 768px) {
+    #news-container {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #333;
+        width: 150px;
+        text-align: center;
+        z-index: 99;
+    }
+
+    .nav-active {
+        display: flex; /* Show the nav-links when active */
+    }
+
+    .search-item {
+        margin-top: 20px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        width: 100%; /* Make the search bar full width on mobile */
+        align-items: stretch;
+    }
+
+    .search-bar input {
+        width: 90%;
+        margin: 10px auto; /* Center the input */
+    }
+
+    .search-bar button {
+        width: 90%;
+        margin: 10px auto; /* Center the button */
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
+/* Burger Menu */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 21px;
+    margin-left: 10px;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px;
+}
